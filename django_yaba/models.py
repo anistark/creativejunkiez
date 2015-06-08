@@ -1,6 +1,6 @@
 import datetime, urllib, re, twitter
-from tagging.fields import TagField
-from tagging.models import Tag
+# from tagging.fields import TagField
+# from tagging.models import Tag
 # from django.contrib.comments.moderation import CommentModerator, moderator
 from django.conf import settings
 from django.db.models.signals import post_save, pre_save
@@ -99,13 +99,13 @@ class Story(models.Model):
     modified = models.DateTimeField(default=datetime.datetime.now)
     tweet_this = models.BooleanField()
     enable_comments = models.BooleanField(default=True)
-    tags = TagField()
+    # tags = TagField()
 
-    def set_tags(self, tags):
-        Tag.objects.update_tags(self, tags)
+    # def set_tags(self, tags):
+    #     Tag.objects.update_tags(self, tags)
 
-    def get_tags(self):
-        return Tag.objects.get_for_object(self) 
+    # def get_tags(self):
+    #     return Tag.objects.get_for_object(self) 
 
     class Meta:
         ordering = ['-modified']
@@ -149,13 +149,13 @@ class Article(models.Model):
     modified = models.DateTimeField(default=datetime.datetime.now)
     tweet_this = models.BooleanField()
     enable_comments = models.BooleanField(default=True)
-    tags = TagField()
+    # tags = TagField()
 
-    def set_tags(self, tags):
-        Tag.objects.update_tags(self, tags)
+    # def set_tags(self, tags):
+    #     Tag.objects.update_tags(self, tags)
 
-    def get_tags(self):
-        return Tag.objects.get_for_object(self)
+    # def get_tags(self):
+    #     return Tag.objects.get_for_object(self)
 
     class Meta:
         ordering = ['modified']
@@ -180,13 +180,13 @@ class Gallery(models.Model):
     owner = models.ForeignKey(User)
     category = models.ManyToManyField(Category)
     enable_comments = models.BooleanField(default=True)
-    tags = TagField()
+    # tags = TagField()
 
-    def set_tags(self, tags):
-        Tag.objects.update_tags(self, tags)
+    # def set_tags(self, tags):
+    #     Tag.objects.update_tags(self, tags)
 
-    def get_tags(self):
-        return Tag.objects.get_for_object(self)
+    # def get_tags(self):
+    #     return Tag.objects.get_for_object(self)
 
     class Meta:
         ordering = ["created"]

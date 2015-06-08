@@ -1,22 +1,22 @@
 from django import forms
-from django.db.models import get_model
 from django_yaba import widgets
+from .models import Story,Article,Gallery
+
 
 class StoryAdminForm(forms.ModelForm):
     body=forms.CharField(widget=widgets.TinyMCEWidget())
-
     class Meta:
-        model = get_model('django_yaba', 'story')
+        model = Story
+
 
 class ArticleAdminForm(forms.ModelForm):
     body=forms.CharField(widget=widgets.TinyMCEWidget())
-
     class Meta:
-        model = get_model('django_yaba', 'article')
+        model = Article
+
 
 class GalleryAdminForm(forms.ModelForm):
     body=forms.CharField(widget=widgets.TinyMCEWidget())
-
     class Meta:
-        model = get_model('django_yaba', 'gallery')
+        model = Gallery
 
