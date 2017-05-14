@@ -1,8 +1,8 @@
 from django.conf.urls import *
 from django.conf import settings
-# from django.contrib.syndication.views import feed
+from django.contrib.syndication.views import feed
 from django_yaba.models import Links
-# from django_yaba.feeds import RSSFeed
+from django_yaba.feeds import RSSFeed
 
 #info_dict = { 'queryset': Story.objects.all(), 'template_object_name': 'story' }
 urlpatterns = patterns('django_yaba.views',
